@@ -17,7 +17,6 @@ const BarGraph = (props) => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
-  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
   const calcHeight = () => {
     return matchesMD ? 300 : matchesSM ? 150 : 400;
   }
