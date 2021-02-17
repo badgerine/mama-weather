@@ -11,16 +11,20 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     marginTop: '2em',
     marginBottom: '2em',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: theme.palette.common.mamaGrey,
   },
   itemContainer: {
-    borderRadius: '1em'
+    borderRadius: '1em',
   },
   min: {
-    paddingLeft: '1.5em'
+    paddingLeft: '1.5em',
+    opacity: '0.65',
+    color: theme.palette.common.mamaBlue
   },
   max: {
-    paddingRight: '1.5em'
+    paddingRight: '1.5em',
+    opacity: '0.65',
+    color: theme.palette.common.mamaOrange
   }
 }));
 
@@ -41,10 +45,10 @@ const Daily = (props) => {
             </Grid>
             <Grid item container>
               <Grid item className={classes.min} xs>
-                <Typography align='center'>{functions.displayTemp(daily.temp.min, temperatureUnit)}</Typography>
+                <Typography align='center'>{functions.displayTemp(daily.temp.min, temperatureUnit)+'\u00b0'}</Typography>
               </Grid>
               <Grid item className={classes.max} xs>
-                <Typography align='center'>{functions.displayTemp(daily.temp.max, temperatureUnit)}</Typography>
+                <Typography align='center'>{functions.displayTemp(daily.temp.max, temperatureUnit)+'\u00b0'}</Typography>
               </Grid>
             </Grid>
           </Grid>

@@ -6,7 +6,8 @@ import Hourly from './components/Hourly';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import Spinner from './components/widgets/Spinner/Spinner';
-import { Typography } from '@material-ui/core';
+import { ThemeProvider, Typography } from '@material-ui/core';
+import Theme from './theme/Theme';
 
 const App = (props) => {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -17,7 +18,7 @@ const App = (props) => {
   const axiosConfig = {
     baseURL: process.env.REACT_APP_SERVICE_PROXY,
     method: 'post',
-    data: {remoteUrl: process.env.REACT_APP_SERVICE_PARAM_URL}
+    data: { remoteUrl: process.env.REACT_APP_SERVICE_PARAM_URL }
   }
 
   const retrieveWeatherData = () => {
@@ -25,7 +26,7 @@ const App = (props) => {
 
     axios.request(axiosConfig)
       .then(res => {
-        const weatherData =res.data;
+        const weatherData = res.data;
         setAppData(weatherData)
       })
       .catch(err => {
@@ -43,7 +44,7 @@ const App = (props) => {
   }
 
   useEffect(() => {
-    if(currentData && dailyData && hourlyData){
+    if (currentData && dailyData && hourlyData) {
       setDataLoaded(true);
       // console.log('[App.useEffect]currentData=',currentData);
       // console.log('[App.useEffect]dailyData=',dailyData);
@@ -55,10 +56,10 @@ const App = (props) => {
     const dataRefresh = setInterval(() => {
       retrieveWeatherData();
     }, process.env.REACT_APP_SERVICE_REFRESH_MINS * 60 * 1000);
-    return()=>{
+    return () => {
       clearInterval(dataRefresh)
     }
-  },[])
+  }, [])
 
   useEffect(() => {
     retrieveWeatherData();
@@ -75,16 +76,17 @@ const App = (props) => {
         <Typography variant='h3'>Cape Town Weather</Typography>
         <Typography>Awaiting weather data ...</Typography>
         <Spinner />
-        
+
       </Grid>
 
     );
 
   return (
-    <React.Fragment>
-      {homePage}
-    </React.Fragment>
-
+    <ThemeProvider theme={Theme}>
+      <React.Fragment>
+        {homePage}
+      </React.Fragment>
+    </ThemeProvider>
   )
 }
 

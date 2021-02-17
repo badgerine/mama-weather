@@ -64,8 +64,8 @@ const Current = (props) => {
       </Grid>
       <Grid item>
         <RadioGroup aria-label="Unit" name="degrees" value={temperatureUnit} onChange={handleRadioChange}>
-          <FormControlLabel value={constants.CELSIUS} control={<Radio style={{ color: '#ffa500' }} />} label={'\u00b0 C'} />
-          <FormControlLabel value={constants.FAHRENHEIT} control={<Radio style={{ color: '#ffa500' }} />} label={'\u00b0 F'} color='#ffa500' />
+          <FormControlLabel value={constants.CELSIUS} control={<Radio style={{ color: theme.palette.common.mamaOrange }} />} label={'\u00b0 C'} />
+          <FormControlLabel value={constants.FAHRENHEIT} control={<Radio style={{ color: theme.palette.common.mamaOrange }} />} label={'\u00b0 F'} />
         </RadioGroup>
       </Grid>
     </Grid>

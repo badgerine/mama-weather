@@ -6,9 +6,7 @@ import hotIcon from '../../assets/hot.svg';
 import coldIcon from '../../assets/cold.svg';
 
 const TempVisual = (props) => {
-
   const { temperature } = props;
-
 
   return (
     <Grid item >
