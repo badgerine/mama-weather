@@ -16,9 +16,8 @@ const App = (props) => {
   const [hourlyData, setHourlyData] = useState(null);
 
   const axiosConfig = {
-    baseURL: process.env.REACT_APP_SERVICE_PROXY,
-    method: 'post',
-    data: { remoteUrl: process.env.REACT_APP_SERVICE_PARAM_URL }
+    url: process.env.REACT_APP_SERVICE_PARAM_URL,
+    method: 'get',
   }
 
   const retrieveWeatherData = () => {
@@ -27,6 +26,13 @@ const App = (props) => {
     axios.request(axiosConfig)
       .then(res => {
         const weatherData = res.data;
+        let jsonObject = null;
+        try{
+          jsonObject = JSON.parse(weatherData);
+          setAppData(jsonObject);
+        } catch(e){
+          console.error('[App.js] response.data is not JSON',weatherData);
+        }
         setAppData(weatherData)
       })
       .catch(err => {

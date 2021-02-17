@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     marginTop: '2em',
     marginBottom: '2em',
+    minWidth: '15em',
     backgroundColor: theme.palette.common.mamaGrey,
   },
   itemContainer: {
