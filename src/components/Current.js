@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Current = (props) => {
-  const classes = useStyles();
   const theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
@@ -57,7 +56,7 @@ const Current = (props) => {
   return (
     <Grid container direction='row' justify={matchesXS ? 'center' : undefined} >
       <Grid item>
-        <TempVisual temperature={props.current.temp} />
+        <TempVisual weather={props.current.weather} />
       </Grid>
       <Grid item >
         <Typography style={{ alignSelf: 'center', fontSize: '3rem' }}>{functions.displayTemp(currentTemp, temperatureUnit)}</Typography>

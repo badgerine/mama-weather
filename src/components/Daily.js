@@ -14,9 +14,13 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '2em',
     minWidth: '15em',
     backgroundColor: theme.palette.common.mamaGrey,
+    borderRadius: '1em'
   },
   itemContainer: {
+    padding: '1em',
+    margin: '0.1em',
     borderRadius: '1em',
+    backgroundColor: theme.palette.common.mamaYellow,
   },
   min: {
     paddingLeft: '1.5em',
@@ -44,11 +48,9 @@ const Daily = (props) => {
                 <Typography align='center'>{functions.getDay(new Date(daily.dt * 1000).getDay())}</Typography>
               </Tooltip>
             </Grid>
-            <Tooltip title={daily.weather[0].description} aria-label='description'>
-              <Grid item align='center' style={{ opacity: 0.8 }}>
-                <TempVisual temperature={daily.temp.max} />
-              </Grid>
-            </Tooltip>
+            <Grid item align='center' style={{ opacity: 0.8 }}>
+              <TempVisual weather={daily.weather} />
+            </Grid>
             <Grid item container>
               <Grid item className={classes.min} xs>
                 <Typography align='center'>{functions.displayTemp(daily.temp.min, temperatureUnit) + '\u00b0'}</Typography>

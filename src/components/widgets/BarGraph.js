@@ -36,7 +36,7 @@ const BarGraph = (props) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey={yData[0]} fill="#ffa500" />
+        <Bar dataKey={yData[0]} fill={theme.palette.common.mamaOrange} />
       </BarChart>
     </Paper>
   );

@@ -1,21 +1,16 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import * as constants from '../../utility/constants';
-import fairIcon from '../../assets/fair.svg';
-import hotIcon from '../../assets/hot.svg';
-import coldIcon from '../../assets/cold.svg';
+import { Tooltip } from '@material-ui/core';
 
 const TempVisual = (props) => {
-  const { temperature } = props;
+  const { weather } = props;
 
   return (
     <Grid item >
-      <img style={{ height: '7em', width: '7em', borderRadius: '1em' }} src={
-        temperature > constants.HOT_THRESHOLD ? hotIcon :
-          temperature < constants.COLD_THRESHOLD ? coldIcon :
-            fairIcon
-      }
-        alt="temperature icon" />
+      <Tooltip title={weather[0].description} aria-label='description'>
+        <img style={{ height: '7em', width: '7em', borderRadius: '1em' }} src={`http://openweathermap.org/img/wn/${weather[0].icon}@4x.png`}
+          alt="temperature icon" />
+      </Tooltip>
     </Grid>
   )
 }

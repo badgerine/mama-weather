@@ -4,8 +4,9 @@ export default createMuiTheme({
   palette: {
     common: {
       mamaGrey: '#F5F5F5',
-      mamaOrange: '#ffa500',
-      mamaBlue: '#3333FF'
+      mamaOrange: '#E73927',
+      mamaBlue: '#3333FF',
+      mamaYellow: '#FEF87F'
     }
   }
 });
