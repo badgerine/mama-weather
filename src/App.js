@@ -72,7 +72,7 @@ const App = (props) => {
   }, [])
 
   const homePage = dataLoaded ? (
-    <Grid container direction='column' alignItems='center'>
+    <Grid container direction='column' align='center' alignItems='center'>
       <Header data={currentData} />
       <Daily data={dailyData} />
       <Hourly data={hourlyData} />

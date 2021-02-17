@@ -15,7 +15,7 @@ const Hourly = (props) =>  {
   const temperatureUnit = useSelector(state => state.temperatureUnit);
 
   return (
-    <Grid container direction='row' justify='center'>
+    <Grid container direction='column' alignItems='center'>
       <BarGraph data={props.data.map(hourInfo => {
         let hours = (new Date(hourInfo.dt*1000)).getHours()+':00';
         const temperature = functions.displayTemp(hourInfo.temp, temperatureUnit);
