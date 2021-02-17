@@ -4,6 +4,7 @@ import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import BarGraph from './widgets/BarGraph';
 import * as functions from '../utility/functions';
+import { Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles( theme => ({
 
@@ -16,11 +17,13 @@ const Hourly = (props) =>  {
 
   return (
     <Grid container direction='column' alignItems='center'>
+      <Hidden xsDown>
       <BarGraph data={props.data.map(hourInfo => {
         let hours = (new Date(hourInfo.dt*1000)).getHours()+':00';
         const temperature = functions.displayTemp(hourInfo.temp, temperatureUnit);
           return {hours, temperature};
         })}/>
+        </Hidden>
     </Grid>
   )
 }

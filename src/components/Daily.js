@@ -49,10 +49,10 @@ const Daily = (props) => {
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
   const temperatureUnit = useSelector(state => state.temperatureUnit);
   return (
-    <Grid item container direction='row' xs={12} sm={12} lg={10} className={classes.mainContainer}>
+    <Grid item container direction='row' xs={6} sm={12} lg={10} className={classes.mainContainer}>
       {props.data.map(daily => {
         return (<React.Fragment key={daily.dt}>
-          <Grid className={classes.itemContainer} item container direction='column' lg={1} md={3} sm={3} xs={6}>
+          <Grid className={classes.itemContainer} item container direction='column' lg={2} md={3} sm={3} xs={12}>
             <Grid item >
               <Tooltip title={functions.offsetTime(functions.convertToMS(daily.dt))} aria-label='date'>
                 <Typography align='center'>{functions.getDay(new Date(daily.dt * 1000).getDay())}</Typography>
