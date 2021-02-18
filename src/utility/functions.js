@@ -13,7 +13,7 @@ export const convertToMS = (sinceEpoch) => {
 }
 
 export const offsetTime = (sinceEpochMS) => {
-  return new Date(sinceEpochMS).toLocaleString('en-ZA');// + constants.TIME_OFFSET_MS);
+  return new Date(sinceEpochMS).toLocaleString('en-GB');// + constants.TIME_OFFSET_MS);
 }
 
 export const getDay = (number) => (['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][number])

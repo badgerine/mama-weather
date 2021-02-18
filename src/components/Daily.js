@@ -1,4 +1,4 @@
-import { Tooltip } from '@material-ui/core';
+import { Hidden, Tooltip } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.common.mamaYellow,
   },
   min: {
-    [theme.breakpoints.down('xs')]:{
+    [theme.breakpoints.down('xs')]: {
       paddingLeft: 0,
       align: 'center'
     },
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.common.mamaBlue
   },
   max: {
-    [theme.breakpoints.down('xs')]:{
+    [theme.breakpoints.down('xs')]: {
       paddingRight: 0,
       align: 'center'
     },
@@ -57,6 +57,9 @@ const Daily = (props) => {
               <Tooltip title={functions.offsetTime(functions.convertToMS(daily.dt))} aria-label='date'>
                 <Typography align='center'>{functions.getDay(new Date(daily.dt * 1000).getDay())}</Typography>
               </Tooltip>
+              <Hidden smUp>
+                <Typography align='center'>{(new Date(daily.dt * 1000)).toLocaleDateString('en-GB')}</Typography>
+              </Hidden>
             </Grid>
             <Grid item align='center' style={{ opacity: 0.8 }}>
               <TempVisual weather={daily.weather} />
