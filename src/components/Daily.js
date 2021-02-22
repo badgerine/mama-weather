@@ -54,11 +54,11 @@ const Daily = (props) => {
         return (<React.Fragment key={daily.dt}>
           <Grid className={classes.itemContainer} item container direction='column' lg={2} md={3} sm={3} xs={12}>
             <Grid item >
-              <Tooltip title={functions.offsetTime(functions.convertToMS(daily.dt))} aria-label='date'>
-                <Typography align='center'>{functions.getDay(new Date(daily.dt * 1000).getDay())}</Typography>
+              <Tooltip title={functions.formatToDateString(functions.convertToMS(daily.dt))} aria-label='date'>
+                <Typography align='center'>{functions.getDay(new Date(functions.convertToMS(daily.dt)).getDay())}</Typography>
               </Tooltip>
               <Hidden smUp>
-                <Typography align='center'>{(new Date(daily.dt * 1000)).toLocaleDateString('en-GB')}</Typography>
+                <Typography align='center'>{functions.formatToDateString(functions.convertToMS(daily.dt))}</Typography>
               </Hidden>
             </Grid>
             <Grid item align='center' style={{ opacity: 0.8 }}>
